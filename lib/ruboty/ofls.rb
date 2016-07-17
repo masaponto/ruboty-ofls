@@ -100,9 +100,10 @@ module Ruboty
           week_start = - week_day + week * 7
           week_end   = week_start + 4
         elsif week_abs.match(/^\d+\/\d+$/)
-          week_start_date   = Date.parse(week_abs) - Date.parse(week_abs).strftime("%w").to_i + 1
-          week_start        = week_start_date.strftime("%m/%d").gsub(/^0|\/0/,"")
-          week_end          = (week_start_date + 4).strftime("%m/%d").gsub(/^0|\/0/,"")
+          week       = (Date.parse(week_abs) - Date.today).to_i
+          week_day   = Date.parse(week_abs).strftime("%w").to_i - 1
+          week_start = - week_day + week
+          week_end   = week_start + 4
         else
           return "no shift"
         end
