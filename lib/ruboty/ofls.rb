@@ -1,3 +1,4 @@
+# coding: utf-8
 require "ruboty/ofls/version"
 require "ruboty/handlers/ofls"
 require 'csv'
@@ -72,7 +73,11 @@ module Ruboty
       def date_shift(date_abs = 0)
         date_abs = 0 if date_abs.nil?
         date     = (Date.today + date_abs).strftime("%m/%d").gsub(/^0|\/0/,"")
-        format_table(@shift_hash[date])
+        if @shift_hash[date].nil? then
+          "no shift"
+        else
+          format_table(@shift_hash[date])
+        end
       end
 
       def week_shift(week_abs = 0)
