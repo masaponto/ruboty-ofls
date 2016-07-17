@@ -19,7 +19,18 @@ Or install it yourself as:
 
 ## Usage
 
-- MAY BE comming soon
+```
+$ echo "export OFLS_KEY = <your-google-spread-sheet-key-goes-here>" >> ~/.zshenv
+$ echo "export OFLS_GID = <your-google-spread-sheet-gid-goes-here>" >> ~/.zshenv
+```
+  
+if heroku, 
+```
+$ heroku config:set OFLS_KEY="<your-google-spread-sheet-gid-goes-here>"
+$ heroku config:set OFLS_GID="<your-google-spread-sheet-gid-goes-here>"
+```
+
+
 
 ## Development
 
