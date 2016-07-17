@@ -103,6 +103,8 @@ module Ruboty
           week_start_date   = Date.parse(week_abs) - Date.parse(week_abs).strftime("%w").to_i + 1
           week_start        = week_start_date.strftime("%m/%d").gsub(/^0|\/0/,"")
           week_end          = (week_start_date + 4).strftime("%m/%d").gsub(/^0|\/0/,"")
+        else
+          return "no shift"
         end
 
         (week_start .. week_end).map{|date| date_shift(date.to_s)}.join("\n")
