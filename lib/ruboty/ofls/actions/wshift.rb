@@ -11,7 +11,7 @@ module Ruboty
         private
         def wshift
           '```' + \
-          Shift.new(key: ENV["OFLS_KEY"], gid: ENV["OFLS_GID"]).week_shift(message[:number].to_i) + \
+          Shift.new(key: ENV["OFLS_KEY"], gid: ENV["OFLS_GID"]).week_shift(message[:date]) + \
           '```'
         end
       end

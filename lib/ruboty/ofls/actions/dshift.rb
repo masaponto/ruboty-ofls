@@ -11,7 +11,7 @@ module Ruboty
         private
         def dshift
           '```' + \
-          Shift.new(key: ENV["OFLS_KEY"], gid: ENV["OFLS_GID"]).date_shift(message[:number].to_i) + \
+          Shift.new(key: ENV["OFLS_KEY"], gid: ENV["OFLS_GID"]).date_shift(message[:date]) + \
           '```'
         end
       end

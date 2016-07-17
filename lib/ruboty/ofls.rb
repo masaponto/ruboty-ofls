@@ -70,9 +70,17 @@ module Ruboty
       end
 
       public
-      def date_shift(date_abs = 0)
-        date_abs = 0 if date_abs.nil?
-        date     = (Date.today + date_abs).strftime("%m/%d").gsub(/^0|\/0/,"")
+      def date_shift(date_abs = "")
+
+        if date_abs.nil? || date_abs.empty? then
+          date_abs = ""
+          date     = Date.today.strftime("%m/%d").gsub(/^0|\/0/,"")
+        elsif date_abs.match(/^-*\d+$/) then
+          date     = (Date.today + date_abs.to_i).strftime("%m/%d").gsub(/^0|\/0/,"")
+        elsif date_abs.match(/^\d+\/\d+$/)
+          date     = date_abs
+        end
+
         if @shift_hash[date].nil? then
           "no shift"
         else
@@ -80,12 +88,25 @@ module Ruboty
         end
       end
 
-      def week_shift(week_abs = 0)
-        week_abs    = 0 if week_abs.nil?
-        week_day    = Date.today.strftime("%w").to_i - 1
-        week_start  = - week_day + week_abs * 7
-        week_end    = week_start + 4
-        (week_start .. week_end).map{|date| date_shift(date)}.join("\n")
+      def week_shift(week_abs = "")
+
+        if week_abs.nil? || week_abs.empty? then
+          week_abs   = ""
+          week_start = - Date.today.strftime("%w").to_i + 1
+          week_end   = week_start + 4
+        elsif week_abs.match(/^-*\d+$/) then
+          week       = week_abs.to_i
+          week_day   = Date.today.strftime("%w").to_i - 1
+          week_start = - week_day + week * 7
+          week_end   = week_start + 4
+        elsif week_abs.match(/^\d+\/\d+$/)
+          week_start_date   = Date.parse(week_abs) - Date.parse(week_abs).strftime("%w").to_i + 1
+          week_start        = week_start_date.strftime("%m/%d").gsub(/^0|\/0/,"")
+          week_end          = (week_start_date + 4).strftime("%m/%d").gsub(/^0|\/0/,"")
+        end
+
+        (week_start .. week_end).map{|date| date_shift(date.to_s)}.join("\n")
+
       end
 
     end
