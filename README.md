@@ -24,7 +24,7 @@ $ echo "export OFLS_KEY = <your-google-spread-sheet-key-goes-here>" >> ~/.zshenv
 $ echo "export OFLS_GID = <your-google-spread-sheet-gid-goes-here>" >> ~/.zshenv
 ```
   
-if heroku, 
+If heroku, 
 ```
 $ heroku config:set OFLS_KEY="<your-google-spread-sheet-gid-goes-here>"
 $ heroku config:set OFLS_GID="<your-google-spread-sheet-gid-goes-here>"
@@ -40,4 +40,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruboty-ofls.
+Bug reports and pull requests are welcome on GitHub at https://github.com/masaponto/ruboty-ofls.
