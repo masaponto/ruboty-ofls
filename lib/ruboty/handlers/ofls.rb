@@ -6,8 +6,8 @@ module Ruboty
   module Handlers
     # ofls shift
     class Ofls < Base
-      on /dshift (?<date>.*?)\z|dshift\z|dshift (?<date>\d+\/\d+)\z/, name: 'dshift', description: 'print date shift'
-      on /wshift (?<date>.*?)\z|wshift\z|wshift (?<date>\d+\/\d+)\z/, name: 'wshift', description: 'print week shift'
+      on /dshift\z|dshift (?<date>.*?)\z|dshift (?<date>\d+\/\d+)\z/, name: 'dshift', description: 'print date shift'
+      on /wshift\z|wshift (?<date>.*?)\z|wshift (?<date>\d+\/\d+)\z/, name: 'wshift', description: 'print week shift'
       env :OFLS_KEY, "google spread sheet key"
       env :OFLS_GID, "google spread sheet gid"
 
