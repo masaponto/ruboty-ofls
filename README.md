@@ -6,16 +6,13 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruboty-ofls'
+gem 'ruboty-ofls', :git => 'git://github.com/masaponto/ruboty-ofls.git'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install ruboty-ofls
 
 ## Usage
 
