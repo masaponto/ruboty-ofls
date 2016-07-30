@@ -74,10 +74,10 @@ module Ruboty
 
         if date_str.nil? || date_str.empty? then
           date_str = ""
-          date     = Date.today.strftime("%m/%d").gsub(/^0|\/0/,"")
+          date     = Date.today.strftime("%m/%d").gsub(/^0/,"").gsub(/\/0/,"/")
 
         elsif date_str.match(/^-*\d+$/) then
-          date     = (Date.today + date_str.to_i).strftime("%m/%d").gsub(/^0|\/0/,"")
+          date     = (Date.today + date_str.to_i).strftime("%m/%d").gsub(/^0/,"").gsub(/\/0/,"/")
 
         elsif date_str.match(/^\d+\/\d+$/)
           date     = date_str
